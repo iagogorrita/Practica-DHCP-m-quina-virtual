@@ -12,7 +12,7 @@ interfaces de red de nuestro `Ubuntu Server`, configurando una interfaz `enp0s3`
 sudo nano /etc/netplan/00-install-config.yaml
 ```
 *00-install-config.yaml*
-![Alt text](image-2.png)
+![Alt text](Imagenes/VirtualBox_DHCP_sri5.png)
 
 ### Paso 2
 Cuando establezcamos la configuración de nuestras interfaces de red del servidor DHCP, procederemos a aplicarla mediante el comando:
@@ -23,7 +23,7 @@ A continuación, comprobamos que la configuración se ha aplicado correctamente 
 ```yaml
 ip a
 ```
-![Alt text](image-1.png)
+![Alt text](Imagenes/image-1.png)
 ### Paso 3
 Ahora, procederemos a configurar nuestro servicio DHCP. Para ello, mediante
 el comando:
@@ -60,7 +60,7 @@ Después, mediante el comando:
 sudo nano /etc/dhcp/dhcpd.conf
 ```
 accederemos al archivo `dhcpd.conf` y estableceremos la configuración de la red a la cuál pertenecerán nuestros clientes DHCP:
-![Alt text](image.png)
+![Alt text](Imagenes/image.png)
 ### Paso 5
 Una vez establecida toda la configuración necesaria para el correcto funcionamiento de nuestro
 servicio DHCP, lo reiniciaremos mediante el comando:
@@ -71,16 +71,16 @@ y a continuación comprobaremos su inicialización mediante el comando:
 ```yaml
 sudo service isc-dhcp-server status
 ```
-![Alt text](VirtualBox_DHCP_sri2.png)
+![Alt text](Imagenes/VirtualBox_DHCP_sri2.png)
 ## Verificación
 ### Configuración de red
 En un cliente DHCP, visualizamos su cofiguración de red con el comando:
 ```yaml
 ip a
 ```
-![Alt text](Screenshot_20231205_162707.png)
+![Alt text](Imagenes/Screenshot_20231205_162707.png)
 Ahora, en el cliente DHCP con una configuración estática, haremos lo mismo:
-![Alt text](Screenshot_20231205_193608.png)
+![Alt text](Imagenes/Screenshot_20231205_193608.png)
 ### Wireshark
 Ahora, para verificar que nuestro servicio DHCP funciona correctamente, monitorizaremos el tráfico `UDP` de nuestra interfaz de red por DHCP en nuestro client DHCP. Para ello, mediante el comando:
 ```console
@@ -93,7 +93,7 @@ Despues de esto pondremos los filtros para captar los paquetes de DHPC de nuestr
 sudo dhclient
 ```
 y veremos los paquetes en el wireshark
-![Alt text](image-3.png)
+![Alt text](Imagenes/image-3.png)
 Lo mismo con el otro cliente:
-![Alt text](VirtualBox_DHCP_sri3.png)
+![Alt text](Imagenes/VirtualBox_DHCP_sri3.png)
 En este caso se cambio la ip del 100 al 101.
